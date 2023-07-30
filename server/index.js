@@ -10,12 +10,8 @@ const app = express()
 
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.get('/data', (req, res) => {
-    res.send('data')
-  })
-  
-app.get('/meta', (req, res) => {
-    res.send('data')
+app.get('/', (req, res) => {
+    res.send('node server created successfully')
   })
   
 
