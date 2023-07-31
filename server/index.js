@@ -15,8 +15,22 @@ app.get("/", (req, res) => {
   res.send("node server created successfully");
 });
 
-app.get("/health", (req, res) => {
-  res.status(200).send("server is up and running");
+app.get("/health", async (req, res) => {
+  
+  const health = {
+    uptime: process.uptime(),
+    message: 'ok',
+    timestamp: Date.now()
+  };
+
+  try {
+    res.send(health)
+  }catch (error) {
+    health.error = error;
+    res.status(503).send(); 
+   
+  }
+
 });
 
 app.listen(process.env.PORT, () => {
