@@ -19,7 +19,7 @@ app.listen(process.env.PORT, () => {
   mongoose
     .connect(process.env.MONGODB_URL, {
       useNewUrlParser: true,
-      useUnfieldTopology: true
+      useUnifiedTopology: true
     })
     .then(() =>
       console.log("server running on port http://localhost:${process.env.PORT}")
