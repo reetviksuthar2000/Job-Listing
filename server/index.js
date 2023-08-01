@@ -4,6 +4,8 @@ const ejs = require("ejs");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const User = require('./models/user');
+const Job = require('./models/job');
 const dotenv = require("dotenv");
 dotenv.config();
 
