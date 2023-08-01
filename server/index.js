@@ -16,26 +16,15 @@ app.get("/", (req, res) => {
 });
 
 app.get("/health", async (req, res) => {
-  
-  const health = {
-    uptime: process.uptime(),
-    message: 'ok',
-    timestamp: Date.now()
-  };
-
-  try {
-    res.send(health)
-  }catch (error) {
-    health.error = error;
-    res.status(503).send(); 
-   
-  }
-
+  res.status(200).json('success is up and running')
 });
 
 app.listen(process.env.PORT, () => {
   mongoose
-    .connect(process.env.MONGODB_URL)
+    .connect(process.env.MONGODB_URL, {
+      useNewUrlParser: true,
+      useUnfieldTopology: true
+    })
     .then(() =>
       console.log("server running on port http://localhost:${process.env.PORT}")
     )
