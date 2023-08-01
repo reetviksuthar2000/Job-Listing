@@ -11,10 +11,6 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.send("node server created successfully");
-});
-
 app.get("/health", async (req, res) => {
   res.status(200).json('success is up and running')
 });
