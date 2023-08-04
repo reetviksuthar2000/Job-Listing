@@ -4,8 +4,7 @@ const ejs = require("ejs");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const User = require('./models/user');
-const Job = require('./models/job');
+const Auth = require("./routers/Auth");
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -14,14 +13,16 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/health", async (req, res) => {
-  res.status(200).json('success is up and running')
+  res.status(200).json("success is up and running");
 });
+
+app.use("/api/auth", Auth);
 
 app.listen(process.env.PORT, () => {
   mongoose
     .connect(process.env.MONGODB_URL, {
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
     })
     .then(() =>
       console.log("server running on port http://localhost:${process.env.PORT}")
