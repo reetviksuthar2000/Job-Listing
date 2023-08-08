@@ -4,12 +4,13 @@ const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt');
 
-router.post("/register", async (req, res) => {
+router.post("/register", async (req, res, next) => {
   try {
     const { name, email, mobile, password } = req.body;
 
     if (!name || !email || !mobile || !password) {
-      return res.status(404).json({ error: "all fields are required" });
+      return next(new Error("cannot get a user detail regidter"))
+      // return res.status(404).json({ error: "all fields are required" });
     }
 
     const existingUser = await User.findOne({ email });
