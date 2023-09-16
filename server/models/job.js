@@ -3,47 +3,47 @@ const mongoose = require("mongoose");
 const jobSchema = new mongoose.Schema({
   companyname: {
     type: String,
-    reqired: true,
+    require: true,
   },
   addlogourl: {
     type: String,
-    reqired: true,
+    require: true,
   },
   jobposition: {
     type: String,
-    reqired: true,
+    require: true,
   },
   monthlysalary: {
     type: String,
-    reqired: true,
+    require: true,
   },
   jobtype: {
     type: String,
-    reqired: true,
+    require: true,
   },
   remote: {
     type: String,
-    reqired: true,
+    require: true,
   },
   location: {
     type: String,
-    reqired: true,
+    require: true,
   },
   jobdescription: {
     type: String,
-    reqired: true,
+    require: true,
   },
   aboutcompany: {
     type: String,
-    reqired: true,
+    require: true,
   },
   skillsrequired: {
-    type: String,
-    reqired: true,
+    type: Array,
+    require: true,
   },
   information: {
     type: String,
-    reqired: true,
+    require: true,
   },
 });
 
