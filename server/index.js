@@ -15,9 +15,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
+app.get("/", async (req, res) => {
+  res.status(200).json("welcome back to my backend server");
+});
+
 app.get("/health", async (req, res) => {
   res.status(200).json("success is up and running");
 });
+
 
 app.use("/api/auth", Auth);
 app.use("/api/job", Jobroute);
